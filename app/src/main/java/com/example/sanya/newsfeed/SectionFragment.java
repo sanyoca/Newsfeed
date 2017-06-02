@@ -23,7 +23,7 @@ public class SectionFragment extends Fragment {
         SharedPreferences preferredSections = PreferenceManager.getDefaultSharedPreferences(getActivity());
         preferredSections.getBoolean("interested_sport", false);
         // TODO: Csinálni a preferences között egy értéket, ami azt tárolja, mennyi cikket mutasson az oldalon. Default: 12.
-        String stringFullURL = stringGuardianURL + getArguments().getString("section") + "/" + getArguments().getString("section") + stringGuardianPagesize + "20";
+        String stringFullURL = stringGuardianURL + getArguments().getString("section").toLowerCase() + "/" + getArguments().getString("section").toLowerCase() + stringGuardianPagesize + "20";
         ((TextView)rootView.findViewById(R.id.texthere)).setText(stringFullURL);
         return rootView;
     }
