@@ -1,5 +1,6 @@
 package com.example.sanya.newsfeed;
 
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -21,10 +22,30 @@ public class SectionFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.sectionlayout, container, false);
 
         SharedPreferences preferredSections = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        preferredSections.getBoolean("interested_sport", false);
-        // TODO: Csinálni a preferences között egy értéket, ami azt tárolja, mennyi cikket mutasson az oldalon. Default: 12.
-        String stringFullURL = stringGuardianURL + getArguments().getString("section").toLowerCase() + "/" + getArguments().getString("section").toLowerCase() + stringGuardianPagesize + "20";
+
+        String stringSection = getArguments().getString("section");
+        String stringMaxArticles = preferredSections.getString("max_articles", "12");
+        // int intLoaderId = getArguments().getInt("sectionLoader");
+
+        String stringFullURL = stringGuardianURL + stringSection + "/" + stringSection + stringGuardianPagesize + stringMaxArticles;
+        // getLoaderManager().initLoader(intLoaderId, null, this);
         ((TextView)rootView.findViewById(R.id.texthere)).setText(stringFullURL);
         return rootView;
     }
+/*
+    @Override
+    public Loader<String> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<String> loader, List data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<String> loader) {
+
+    }
+*/
 }

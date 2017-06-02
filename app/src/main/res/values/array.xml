@@ -9,4 +9,14 @@
         <item>Lifestyle</item>
         <item>Fashion</item>
     </string-array>
+
+    <string-array name="sectionsearch">
+        <item>sport</item>
+        <item>politics</item>
+        <item>technology</item>
+        <item>business</item>
+        <item>environment</item>
+        <item>lifeandstyle</item>
+        <item>fashion</item>
+    </string-array>
 </resources>

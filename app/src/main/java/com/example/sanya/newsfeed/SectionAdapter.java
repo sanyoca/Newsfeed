@@ -27,7 +27,9 @@ public class SectionAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
         SectionFragment sFragment = new SectionFragment();
-        bundle.putString("section", getPageTitle(position).toString());
+        String[] stringSectionSearch = mContext.getResources().getStringArray(R.array.sectionsearch);
+        bundle.putString("section", stringSectionSearch[intTabLabels[position]]);
+        bundle.putInt("sectionLoader", intTabLabels[position]);
         sFragment.setArguments(bundle);
         return sFragment;
     }

@@ -2,34 +2,44 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="Newsfeed settings">
 
-    <CheckBoxPreference
-        android:title="Sport"
-        android:key="interested_sport"/>
+    <PreferenceScreen
+        android:title="Favourite sections">
 
-    <CheckBoxPreference
-        android:title="@string/category_politics"
-        android:key="interested_politics"/>
+        <CheckBoxPreference
+            android:title="@string/category_sport"
+            android:key="interested_sport"/>
 
-    <CheckBoxPreference
-        android:title="@string/category_technology"
-        android:key="interested_technology"/>
+        <CheckBoxPreference
+            android:title="@string/category_politics"
+            android:key="interested_politics"/>
 
-    <CheckBoxPreference
-        android:title="@string/category_business"
-        android:key="interested_business"/>
+        <CheckBoxPreference
+            android:title="@string/category_technology"
+            android:key="interested_technology"/>
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:title="@string/category_environment"
-        android:key="interested_environment"/>
+        <CheckBoxPreference
+            android:title="@string/category_business"
+            android:key="interested_business"/>
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:title="@string/category_lifestyle"
-        android:key="interested_lifestyle"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:title="@string/category_environment"
+            android:key="interested_environment"/>
 
-    <CheckBoxPreference
-        android:title="@string/category_fashion"
-        android:key="interested_fashion"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:title="@string/category_lifestyle"
+            android:key="interested_lifestyle"/>
+
+        <CheckBoxPreference
+            android:title="@string/category_fashion"
+            android:key="interested_fashion"/>
+
+    </PreferenceScreen>
+
+    <EditTextPreference
+        android:key="max_articles"
+        android:defaultValue="12"
+        android:title="Show number of articles per section"/>
 
 </PreferenceScreen>

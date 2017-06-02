@@ -28,26 +28,37 @@ public class PreferencesActivity extends AppCompatActivity{
             Preference interestedEnvironment = findPreference("interested_environment");
             Preference interestedLifestyle = findPreference("interested_lifestyle");
             Preference interestedFashion = findPreference("interested_fashion");
+            Preference maxArticles = findPreference("max_articles");
 
-            bindPreferenceSummaryToValue(interestedSport);
-            bindPreferenceSummaryToValue(interestedPolitics);
-            bindPreferenceSummaryToValue(interestedTechnology);
-            bindPreferenceSummaryToValue(interestedBusiness);
-            bindPreferenceSummaryToValue(interestedEnvironment);
-            bindPreferenceSummaryToValue(interestedLifestyle);
-            bindPreferenceSummaryToValue(interestedFashion);
+            bindPreferenceSummaryToValue(0, interestedSport);
+            bindPreferenceSummaryToValue(0, interestedPolitics);
+            bindPreferenceSummaryToValue(0, interestedTechnology);
+            bindPreferenceSummaryToValue(0, interestedBusiness);
+            bindPreferenceSummaryToValue(0, interestedEnvironment);
+            bindPreferenceSummaryToValue(0, interestedLifestyle);
+            bindPreferenceSummaryToValue(0, interestedFashion);
+            bindPreferenceSummaryToValue(1, maxArticles);
         }
 
         @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
+        public boolean onPreferenceChange(Preference preference, Object newValue)
+        {
+            if(newValue instanceof String) {
+                preference.setSummary(newValue.toString());
+            }
             return true;
         }
 
-        private void bindPreferenceSummaryToValue(Preference preference) {
+        private void bindPreferenceSummaryToValue(int varType, Preference preference) {
             preference.setOnPreferenceChangeListener(this);
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(preference.getContext());
-            boolean preferenceString = preferences.getBoolean(preference.getKey(), false);
-            onPreferenceChange(preference, preferenceString);
+            if(varType == 0)  {
+                boolean preferenceBoolean = preferences.getBoolean(preference.getKey(), false);
+                onPreferenceChange(preference, preferenceBoolean);
+            }   else    {
+                String preferenceString = preferences.getString(preference.getKey(), "12");
+                onPreferenceChange(preference, preferenceString);
+            }
         }
     }
 
