@@ -15,12 +15,10 @@ public class SectionAdapter extends FragmentPagerAdapter {
         super(FM);
         mContext = context;
         intTabLabels = new int[preferences.length];
-        int intLabelCounter = 0;
         for(int i = 0; i<=preferences.length-1; i++)  {
             if(preferences[i])  {
+                intTabLabels[intTabCounter] = i;
                 intTabCounter++;
-                intTabLabels[intLabelCounter] = i;
-                intLabelCounter ++;
             }
         }
     }
