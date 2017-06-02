@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Newsfeed</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category_sport">Sport</string>
+    <string name="category_politics">Politics</string>
+    <string name="category_technology">Technology</string>
+    <string name="category_business">Businnes</string>
+    <string name="category_environment">Environment</string>
+    <string name="category_lifestyle">Lifestyle</string>
+    <string name="category_fashion">Fashion</string>
+    <string name="settings">Settings</string>
+</resources>

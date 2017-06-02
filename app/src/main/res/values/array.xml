@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tablabels">
+        <item>Sport</item>
+        <item>Politics</item>
+        <item>Technology</item>
+        <item>Business</item>
+        <item>Environment</item>
+        <item>Lifestyle</item>
+        <item>Fashion</item>
+    </string-array>
+</resources>
