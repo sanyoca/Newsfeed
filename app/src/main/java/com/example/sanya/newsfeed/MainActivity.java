@@ -1,5 +1,6 @@
 package com.example.sanya.newsfeed;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,8 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     boolean[] booleanSectionPreferences = new boolean[7];
+    public static Context parentContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout TL = (TabLayout) findViewById(R.id.tabs);
         TL.setupWithViewPager(VP);
+
+        parentContext = getApplication();
     }
 
     @Override

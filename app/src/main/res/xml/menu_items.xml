@@ -39,6 +39,7 @@
 
     <EditTextPreference
         android:key="max_articles"
+        android:inputType="numberDecimal"
         android:defaultValue="12"
         android:title="Show number of articles per section"/>
 
