@@ -1,7 +1,8 @@
 package com.example.sanya.newsfeed;
 
-import android.content.AsyncTaskLoader;
+
 import android.content.Context;
+import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 
 import java.net.HttpURLConnection;
@@ -70,7 +71,7 @@ public class ArticleLoader extends AsyncTaskLoader<List<Articles>> {
 
         // if receiving the JSON data was successful (it's not empty)
         if(!stringArticleJSONData.isEmpty())   {
-            // then parse it into a nice List<BookDatas>
+            // then parse it into a nice List<Articles>
             loadIntoThis = articleDataParsingFromThis(getContext(), stringArticleJSONData);
         }   else    {
             // else return null

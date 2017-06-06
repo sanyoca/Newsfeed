@@ -1,18 +1,20 @@
 package com.example.sanya.newsfeed;
-
-
-//import android.app.LoaderManager;
-
-
+/*
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
+*/
+
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +24,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,19 +79,25 @@ public class SectionFragment extends Fragment implements LoaderManager.LoaderCal
         int intLoaderId = getArguments().getInt("sectionLoader");
 
         stringFullURL = stringGuardianURL + stringSection + "/" + stringSection + stringGuardianPagesize + stringMaxArticles;
-        getLoaderManager().initLoader(intLoaderId, null, this);
-
+        LoaderManager lm = getActivity().getSupportLoaderManager();
+        Log.i("test", "before loader");
+        lm.initLoader(intLoaderId, null, this);
+        Log.i("test", "after loader");
         return rootView;
     }
+
 
     @Override
     public Loader<List<Articles>> onCreateLoader(int id, Bundle args) {
         // if returned from a book's website, we have to delete the adapter's content, cause it re-reads and appends the datas to the existing adapter datas
         adapterArticles.clear();
+        Log.i("test", "after clear");
         // make the progressbar appear
         progressBar.setVisibility(View.VISIBLE);
+        Log.i("test", "after set visible");
         // and the emptyview disappear
         emptyView.setVisibility(View.INVISIBLE);
+        Log.i("test", "after set invisible");
         // let's start it. Async. In the background. On a different thread.
         // return the fetched data to onLoadFinished
         return new ArticleLoader(getActivity(), stringFullURL);
@@ -117,6 +124,6 @@ public class SectionFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onLoaderReset(Loader<List<Articles>> loader) {
-            adapterArticles.clear();
+        adapterArticles.clear();
     }
 }
